@@ -1,0 +1,13 @@
+{
+    "name": "Tests",
+    "version": "1.0.0",
+    "description": "this tests Singularity's core libarys",
+    "main": "main.js",
+    "scripts": {
+        "test": "node main.js --module test",
+        "start": "node main.js --module worker"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT"
+}
