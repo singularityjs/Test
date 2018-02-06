@@ -21,10 +21,6 @@ module.exports = function($) {
 			this._obj = $.require('lib!config.js');
 		};
 		obj.prototype = $.extends(base, {
-			hook: function(e) {
-				this._log.push(e);
-			},
-
 			run: function() {
 				const p = $.promise();
 
@@ -88,9 +84,9 @@ module.exports = function($) {
 					};
 					o.reload(nextSeed);
 
-					assert.equal(o.get('env.profile'), seed.appProfile);
-					assert.equal(o.get('env.machine'), seed.machineName);
-					assert.equal(o.get('env.upstart'), seed.upstartWrap);
+					assert.equal(o.get('env.profile'), nextSeed.appProfile);
+					assert.equal(o.get('env.machine'), nextSeed.machineName);
+					assert.equal(o.get('env.upstart'), nextSeed.upstartWrap);
 				});
 
 				p.resolve(this.close());

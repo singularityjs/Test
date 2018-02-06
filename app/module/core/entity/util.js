@@ -23,7 +23,7 @@ module.exports = function($) {
 			},
 
 			clone: function(a, b) {
-				return $.schema.merge().deep($.schema.copy(a), b);
+				return $.schema.copy(a, b);
 			},
 
 			failed: function(cd) {
@@ -34,6 +34,21 @@ module.exports = function($) {
 					failed = e;
 				}
 				return failed;
+			},
+
+			random: function(n) {
+				return Math.floor(Math.random() * n);
+			},
+
+			randomArray: function(n, add) {
+				const out = [];
+				for (var i = 0; i < n; i++) {
+					out.push($.key.random());
+				}
+				if (add) {
+					out.push(add);
+				}
+				return out;
 			}
 		};
 
