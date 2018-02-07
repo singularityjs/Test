@@ -33,7 +33,6 @@ module.exports = function($) {
 					}
 				});
 
-
 				this.it('testing failing wrong setup', () => {
 					for (let i = 0; i < 5; i++) {
 						let fail = util.failed(() => {
