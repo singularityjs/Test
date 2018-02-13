@@ -36,6 +36,13 @@ module.exports = function($) {
 				return failed;
 			},
 
+			fail: function(cd) {
+				let failed = this.failed(cd);
+				if (!failed) {
+					throw new Error('failed to fail.');
+				}
+			},
+
 			random: function(n) {
 				return Math.floor(Math.random() * n);
 			},

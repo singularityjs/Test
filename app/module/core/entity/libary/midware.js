@@ -13,7 +13,7 @@ module.exports = function($) {
 		fs
 	) {
 
-		var obj = function(context) {
+		const obj = function(context) {
 			base.init(this);
 			this._context = context;
 		};
@@ -22,6 +22,10 @@ module.exports = function($) {
 				const p = $.promise(), o = $.require('lib!middleware.js');
 
 				// TODO
+				this.it('testing THING', () => {
+					//assert.equal(a,b);
+					//assert.deepEqual(a,b);
+				});
 
 				p.resolve(this.close());
 

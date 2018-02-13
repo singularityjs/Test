@@ -15,7 +15,7 @@ module.exports = function($) {
 		fs
 	) {
 
-		var obj = function(context) {
+		const obj = function(context) {
 			base.init(this);
 			this._context = context;
 			this._obj = $.require('lib!config.js');

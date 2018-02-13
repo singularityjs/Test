@@ -13,7 +13,7 @@ module.exports = function($) {
 		fs
 	) {
 
-		var obj = function(context) {
+		const obj = function(context) {
 			base.init(this);
 			this._context = context;
 		};
@@ -21,7 +21,27 @@ module.exports = function($) {
 			run: function() {
 				const p = $.promise(), o = $.require('lib!extends.js');
 
-				// TODO
+				const base = () => {};
+				base.prototype = {value: 'cat', get: function() { return [this.value, this.setup]; }};
+
+				this.it('testing extends', () => {
+					const tmp = function(a) {
+						this.setup = a;
+					};
+					tmp.prototype = o(base, {
+						toString: function() {
+							const a = this.get();
+							return a[0] + '_' + a[1];
+						}
+					});
+
+					for (let i = 0; i < 5; i++) {
+						let key = $.key.random(), x = new tmp(key);
+						assert.deepEqual(x.get(), ['cat', key]);
+						assert.equal(x.toString(), 'cat_' + key);
+					}
+				});
+
 
 				p.resolve(this.close());
 

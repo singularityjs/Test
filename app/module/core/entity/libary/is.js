@@ -13,7 +13,7 @@ module.exports = function($) {
 		fs
 	) {
 
-		var obj = function(context) {
+		const obj = function(context) {
 			base.init(this);
 			this._context = context;
 		};
@@ -64,6 +64,9 @@ module.exports = function($) {
 				this.it('testing is.object', () => {
 					const t = util.clone(test_value);
 					t[9][1] = true;
+					t[6][1] = true;
+					t[7][1] = true;
+					t[8][1] = true;
 					t[10][1] = true;
 					t[11][1] = true;
 					for (let i in t) {
